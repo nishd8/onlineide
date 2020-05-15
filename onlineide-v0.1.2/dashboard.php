@@ -71,6 +71,7 @@
     background-color: white;
     padding:30px;
     font-size: 20px;
+    width:300px;
   }
   .question
   {
@@ -87,18 +88,17 @@
      </nav>
   <div class="container-fluid">
      <div class="row">
-      <div class="col-lg-4 offset-lg-4 md-12 sm-12 edit">
-      <div class="table-responsive">
-      <table class="table table-striped">
-        <tr><th>Name</th><th>ID</th></tr>
+      <div class="col-lg-8 offset-lg-2 md-12 sm-12 edit">
+        
         <?php
          $q="SELECT test_id,name FROM question";
          $run=mysqli_query($conn,$q);
+         echo '<div class="row">';
          while($row=mysqli_fetch_assoc($run))
          {
-          echo "<tr><td>".$row['name']."</td><td>".$row['test_id']."</td><td><a href='editor.php?tid=".$row['test_id']."' class='submitbutton'>Submit Solution</a></td></tr>";
+          echo "<div class='output-div col'><b>Question:</b> ".$row['name']."<br><br><b>ID:</b> ".$row['test_id']."<br><br><a href='editor.php?tid=".$row['test_id']."' class='submitbutton'>Submit Solution</a></div>&emsp;&emsp;";
          }
-
+         echo '</div>'
         ?>
       </table>
       </div>
